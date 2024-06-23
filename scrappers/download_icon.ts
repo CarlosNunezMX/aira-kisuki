@@ -8,8 +8,8 @@ async function downloader() {
     const getter = new IconGetter()
     for(const key in data){
         console.log(`Section ${key}`)
-        for(let i = 0; i < data[key].length; i++){
-            const item = data[key][i] as Title; 
+        for(const i in data[key]){
+            const item: Title = data[key][i];
             console.log(`Downloading ${item.title_id}`)
             const icon = await getter.getIcon(item.title_id);
             if(!icon.meta.titleVersion) continue;
@@ -24,8 +24,8 @@ async function downloader() {
 async function cleanner() {
     console.log("Cleaning up...")
     for (const key in data) {
-        for(let i = 0; i < data[key].length; i++){
-            const title = data[key][i];
+        for(const i in data[key]){
+            const title: Title = data[key][i];
             const file = Bun.file("icons/" + title.title_id + ".json");
             console.log("Checking " + title.title_id + ".json");
             if(!(await file.exists())) continue;
