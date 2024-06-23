@@ -33,25 +33,21 @@ KisukiRouter.get('/titles/search', c => {
     return c.json(filtered)
 })
 
+KisukiRouter.get('/titles/:title_id', c => {
+    const {title_id} = c.req.param();
 
+    if(!title_id){
+        return c.json({error: "Titile id not provided"}, 400);
+    }
 
-
-
-KisukiRouter.get('/title/:region/:title_id', c => {
-    const {region , title_id} = c.req.param();
-    if(!region || !title_id)
-        return c.json({error: "Region or title_id not provided"}, 400);
-
-    if(!cachedRegion.Titles[region as Region])
-        return c.json({error: "Region not found"}, 404);
-
-    const title = cachedRegion.Titles[region as Region][title_id];
-    if(!title)
+    if(!titles[title_id]){
         return c.json({error: "Title not found"}, 404);
+    }
 
-    return c.json(title);
-    
+    return c.json(titles[title_id]);
 })
+
+
 
 KisukiRouter.get("/titles/:region", c => {
     const {region} = c.req.param();
