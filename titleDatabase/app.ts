@@ -6,12 +6,12 @@ import { KisukiRouter } from "./routers";
 
 const app = new Hono();
 
-app.route("/", KisukiRouter)
 app.use('*', maintenanceMode);
 app.use("*", logger((str) => {
     console.log(`[Kisuki] ${str}`)
 }))
 
+app.route("/", KisukiRouter)
 
 console.log("[Kisuki] - Server started!")
 export default app;
