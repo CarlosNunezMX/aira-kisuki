@@ -1,12 +1,25 @@
 import BeautifulDom from "beautiful-dom";
+
 export type Region = "USA" | "EUR" | "JPN" | "ALL" | "EUR/JAP/USA" | "EUR/USA";
 export interface Title{
     title_id: string;
     region: Region;
     name: string;
     cdn: boolean
+    title_type: TitleTypeMap;
 }
 
+enum TitleTypeMap {
+    "00050010" = "system",
+    "0005001B" = "system-archives",
+    "00050030" = "applet",
+    "00050000" = "eshop",
+    "0005000C" = "dlc",
+    "0005000E" = "update",
+    "00050002" = "kiosk",
+    "00000007" = "vwii",
+    default = "unknown"
+};
 class TitleListScrapper{
     readonly url = "https://wiiubrew.org/wiki/Title_database";
     constructor(){
@@ -36,18 +49,24 @@ class TitleListScrapper{
                     return;
                 const tds = row.querySelectorAll('td');
                 if(tds.length === 5){
+                    const _titleType = tds[0].innerText.trim().split("-")[0],
+                            // @ts-ignore
+                           titleType = TitleTypeMap[_titleType] || TitleTypeMap.default;
                     const title_id = tds[0].innerText.trim().replace("-", "");
                     const name = tds[1].innerText.trim();
                     const region = tds[4].innerText.trim().toUpperCase() as Region;
 
-                    titles[title_id] = {title_id: title_id, name: name!, region: region, cdn: true};
+                    titles[title_id] = {title_id: title_id, name: name!, region: region, cdn: true, title_type: titleType};
                     return;
                 }
                 const title_id = tds[0].innerText.trim().replace("-", "");
+                const _titleType = tds[0].innerText.trim().split("-")[0],
+                            // @ts-ignore
+                           titleType = TitleTypeMap[_titleType] || TitleTypeMap.default;
                 const name = tds[1].innerText.trim();
                 const region = tds[6].innerText.trim().toUpperCase() as Region
                 const cdn = tds[7].innerText.trim() == "Yes";
-                titles[title_id] = {title_id: title_id!, name: name!, region: region, cdn: cdn}
+                titles[title_id] = {title_id: title_id!, name: name!, region: region, cdn: cdn, title_type: titleType}
             })
 
         })
