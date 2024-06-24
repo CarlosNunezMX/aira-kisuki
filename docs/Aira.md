@@ -14,7 +14,7 @@ ___
 
 🤔 _Ejemplo:_ `https://aira.carlosnunezmx.work.gd/icon/00050000101DBE00` _Ícono de Minecraft_
 
-<center><img style="border-radius: 5px;" src="https://aira.carlosnunezmx.work.gd/icon/00050000101DBE00" alt="Icono de Minecraft"/></center>
+<center><img style="border-radius: 5px;" src="http://aira.carlosnunezmx.work.gd/icon/00050000101DBE00" alt="Icono de Minecraft"/></center>
 
 #### Obten un icono desde los Servidores de Nintendo [IDBE]
 **🚗 Ruta:** `/icondata/:id/:titleID` 
@@ -33,7 +33,7 @@ _Ejemplo:_ `https://aira.carlosnunezmx.work.gd/icondata/10/00050000101DBE00` - _
 **🚗 Path: `/icon/:titleID`**
 
 _Example:_ `https://aira.carlosnunezmx.work.gd/icon/00050000101DBE00` _Minecraft Icon_
-<center><img style="border-radius: 5px;" src="https://aira.carlosnunezmx.work.gd/icon/00050000101DBE00" alt="Minecraft Logo"/></center>
+<center><img style="border-radius: 5px;" src="http://aira.carlosnunezmx.work.gd/icon/00050000101DBE00" alt="Minecraft Logo"/></center>
 
 #### Get Icon from Nintendo Servers [IDBE] 
 **🚗 Path: `/icondata/:id/:titleID`**
