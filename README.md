@@ -62,6 +62,11 @@ For make an instance of  Aira / Kisuki server you need to rename the file `.env.
 
 > By default it will listen on port `3000 [Aira]` and `3001 [Kisuki]`
 
+# Docs/Docu
+
+- **[Aira docs](/docs/Aira.md)**
+- **[Kisuki docs](/docs/Kisuki.md)**
+
 Thanks to @kinnay for [Idbe Server docs](https://github.com/kinnay/NintendoClients/wiki/IDBE-Server)
 
 **_With ❤️ from 🇲🇽 by CarlosNunezMX_**
