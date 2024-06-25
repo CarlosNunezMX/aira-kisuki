@@ -1,13 +1,14 @@
-import type { Title } from "../types/TitleDB";
+import { TitleTypeMap, type Title } from "../types/TitleDB";
 import { IconGetter, type IconMeta } from "./IconGetter";
 import { rmSync } from "node:fs"
 const file = Bun.file("./titles.json");
 const data = await file.json();
-
+const bad_titles = ["system", "system-archives", "applet", "vwii", "unknown"]
 async function downloader() {
     const getter = new IconGetter()
     for (const i in data) {
         const item: Title = data[i];
+        if(bad_titles.includes(item.title_type))
         console.log(`Downloading ${item.title_id}`)
         const icon = await getter.getIcon(item.title_id);
         if (!icon.meta.titleVersion) continue;
