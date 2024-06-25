@@ -9,6 +9,7 @@ async function downloader() {
     for (const i in data) {
         const item: Title = data[i];
         if(bad_titles.includes(item.title_type))
+            continue;
         console.log(`Downloading ${item.title_id}`)
         const icon = await getter.getIcon(item.title_id);
         if (!icon.meta.titleVersion) continue;
