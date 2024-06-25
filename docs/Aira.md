@@ -31,7 +31,8 @@ _Ejemplo:_ `https://aira.carlosnunezmx.work.gd/icondata/10/00050000101DBE00` - _
 ### Endpoints
 #### Get Icon from Nintendo Server [PNG]
 **🚗 Path: `/icon/:titleID`**
-
+**🧮 Headers:**
+    - `Accept`: `image/tga` - Returns TGA file instead png, empty will returns png file
 _Example:_ `https://aira.carlosnunezmx.work.gd/icon/00050000101DBE00` _Minecraft Icon_
 <center><img style="border-radius: 5px;" src="http://aira.carlosnunezmx.work.gd/icon/00050000101DBE00" alt="Minecraft Logo"/></center>
 
@@ -41,7 +42,7 @@ _Example:_ `https://aira.carlosnunezmx.work.gd/icon/00050000101DBE00` _Minecraft
   - The icon is encrypted by default. Visit the Nintendo Servers Documentation for more
   - The `:id` parameter will not make any sense. _It was catched before_
   - **Format used only on Wii U**
-  - With the header `X-Decrypted` this will returns the decrypted icon. [Not implemented ]
+  - With the header `X-Decrypted` this will returns the decrypted icon.
   
 🤔 _Example:_ `https://aira.carlosnunezmx.work.gd/icondata/10/00050000101DBE00` - _Returns encrypted Minecraft Icon_
 
