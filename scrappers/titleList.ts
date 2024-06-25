@@ -1,5 +1,5 @@
 import BeautifulDom from "beautiful-dom";
-import type { Region, Title } from "../types/TitleDB";
+import { TitleTypeMap, type Region, type Title } from "../types/TitleDB";
 
 
 class TitleListScrapper{

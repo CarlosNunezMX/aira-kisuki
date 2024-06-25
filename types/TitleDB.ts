@@ -9,7 +9,7 @@ export interface Title{
     title_type: TitleTypeMap;
 }
 
-enum TitleTypeMap {
+export enum TitleTypeMap {
     "00050010" = "system",
     "0005001B" = "system-archives",
     "00050030" = "applet",
