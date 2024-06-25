@@ -1,12 +1,10 @@
 import { Hono } from "hono";
 export const KisukiRouter = new Hono();
 import cachedRegion from "./cachedRegions";
-
-import type { Title } from "../scrappers/titleList";
-import type { Region } from "../scrappers/titleList";
+import type { Region, TitleDBRaw } from "../types/TitleDB";
 
 const titleListFile = Bun.file('./titles.json');
-let titles: Record<string, Title> = {};
+let titles: TitleDBRaw = {};
 
 titleListFile.json()
     .then((data) => {cachedRegion.filter(data); titles = data});

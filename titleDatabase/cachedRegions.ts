@@ -1,11 +1,11 @@
-import type { Region, Title } from "../scrappers/titleList";
+import type { Region, TitleDBRaw } from "../types/TitleDB";
 
 export class RegionFiltered {
-    Titles: Record<Region, Record<string, Title>>;
+    Titles: Record<Region, TitleDBRaw>;
     constructor() {
         this.Titles = this.init();
     }
-    private init(): Record<Region, Record<string, Title>>{
+    private init(): Record<Region, TitleDBRaw>{
         return {
             ALL: {},
             EUR: {},
@@ -15,7 +15,7 @@ export class RegionFiltered {
             "EUR/USA": {}
         }
     }
-    filter(titles: Record<string, Title>){
+    filter(titles: TitleDBRaw){
         for(const Title in titles){
             const title = titles[Title];
             this.Titles[title.region][Title] = title;
