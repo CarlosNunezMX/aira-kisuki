@@ -17,7 +17,7 @@ COPY . .
 
 # [optional] tests & build
 ENV NODE_ENV=production
-COPY .env.example .
+COPY .env.example .env
 RUN bun scrappers/titleList.ts
 RUN bun scrappers/download_icon.ts --download
 # copy production dependencies and source code into final image
